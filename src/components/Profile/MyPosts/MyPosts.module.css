@@ -1,0 +1,24 @@
+.content {
+    grid-area: c;
+    background: #ff0000;
+}
+.content img {
+    width: 100%;
+    height: 200px;
+}
+
+.item{
+    color: green;
+    text-decoration: none;
+}
+
+.postsBlock{
+    padding: 10px;
+}
+.postsBlock textarea{
+    padding: 10px;
+}
+
+.posts{
+    margin-top: 10px ;
+}
