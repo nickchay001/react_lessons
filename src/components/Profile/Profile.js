@@ -1,17 +1,16 @@
 import React, { Component } from 'react'
-import MyPosts from './MyPosts/MyPosts'
+
+import MyPostsContainer from './MyPosts/MyPostsContainer'
 import ProfileInfo from './ProfileInfo/ProfileInfo'
 
 
 export class Profile extends Component {
-  render(props) {
+  render() {
     return (
       <div>
         <ProfileInfo />
-        <MyPosts 
-        profilePage={this.props.profilePage}
-         
-          dispatch={this.props.dispatch}
+        <MyPostsContainer 
+        store={this.props.store}
         />
       </div>
     )
