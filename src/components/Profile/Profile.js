@@ -9,9 +9,7 @@ export class Profile extends Component {
     return (
       <div>
         <ProfileInfo />
-        <MyPostsContainer 
-        store={this.props.store}
-        />
+        <MyPostsContainer/>
       </div>
     )
   }

@@ -18,15 +18,11 @@ function App(props) {
 
     <div className='app-wrapper'>
       <Header />
-      <Navbar state={props.state.navbarFrends} />
+      <Navbar />
       <div className='app-wrapper-content'>
         <Routes>
-          <Route path='/' element={<Profile
-            profilePage={props.state.profilePage}
-            store={props.store}
-            dispatch={props.dispatch}
-          />} />
-          <Route path='/dialogs' element={<DialogsContainer store={props.store}/>} />
+          <Route path='/' element={<Profile/>} />
+          <Route path='/dialogs' element={<DialogsContainer/>} />
           <Route path='/music' element={<Music />} />
           <Route path='/news' element={<News />} />
           <Route path='/setting' element={<Setting />} />
