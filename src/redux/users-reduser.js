@@ -3,12 +3,7 @@ const UNFOLLOW = 'UNFOLLOW';
 let SET_USERS = 'SET_USERS';
 
 let initialState = {
-    users: [
-        { id: 1, followed: false, fullName: 'Dmitro', status: 'I`m a boss', location: { city: 'Kiev', country: 'Ukraine' } },
-        { id: 2, followed: true, fullName: 'Chishtof', status: 'Kurwa to ebana', location: { city: 'Warshawa', country: 'Poland' } },
-        { id: 3, followed: true, fullName: 'Angela', status: 'I`m a pretty', location: { city: 'Ankara', country: 'Turkey' } },
-        { id: 4, followed: false, fullName: 'Dedur', status: 'Sus', location: { city: 'Poligon', country: 'Ukraine' } },
-    ],
+   users:[]
 }
 
 const usersReducer = (state = initialState, action) => {
@@ -34,10 +29,9 @@ const usersReducer = (state = initialState, action) => {
                     return u;
                 }),
             }
-        case SET_USERS:
-            return {
-                ...state, users: [...state.users, ...action.users]
-            }
+        case SET_USERS:{
+            return {...state, users: [...state.users, ...action.users]}
+        }
         default:
             return state;
     }
