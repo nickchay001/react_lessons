@@ -21,6 +21,9 @@ export class Navbar extends Component {
         <div className={Classes.item}>
           <NavLink to="/music" className={(navData) => (navData.isActive ? `${Classes.activeLink}` : 'none')}>Music</NavLink>
         </div>
+        <div className={Classes.item}>
+          <NavLink to="/users" className={(navData) => (navData.isActive ? `${Classes.activeLink}` : 'none')}>Users</NavLink>
+        </div>
         <div className={Classes.item + ' ' + Classes.setting}>
           <NavLink to="/setting" className={(navData) => (navData.isActive ? `${Classes.activeLink}` : 'none')}>Setting</NavLink>
         </div>
