@@ -4,15 +4,18 @@ import Classes from './Users.module.css'
 import userPhoto from './../../assets/images/user.jpg'
 
 let Users = (props) => {
-  if (props.users.length === 0) {
-    axios.get("https://social-network.samuraijs.com/api/1.0/users")
-    .then(response => {
-      props.setUsers(response.data.items);
-    })
+  let getUsers = () => {
+    if (props.users.length === 0) {
+      axios.get("https://social-network.samuraijs.com/api/1.0/users")
+        .then(response => {
+          props.setUsers(response.data.items);
+        })
+    }
   }
-
   return (
-    <div>{
+    <div>
+      <button onClick={getUsers}>Get Users</button>
+      {
       props.users.map(u => <div key={u.id}>
         <span>
           <div className={Classes.userImage}>
@@ -37,7 +40,8 @@ let Users = (props) => {
 
       </div>)
 
-    }</div>
+    }
+    </div>
   )
 }
 
