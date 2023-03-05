@@ -7,7 +7,6 @@ let initialState = {
 }
 
 const usersReducer = (state = initialState, action) => {
-
     switch (action.type) {
         case FOLLOW:
             return {
@@ -35,7 +34,6 @@ const usersReducer = (state = initialState, action) => {
         default:
             return state;
     }
-
 }
 
 export const followAC = (userId) => ({ type: FOLLOW, userId })
