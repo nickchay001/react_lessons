@@ -1,18 +1,16 @@
-import React, { Component } from 'react'
+import React from 'react'
 
 import MyPostsContainer from './MyPosts/MyPostsContainer'
 import ProfileInfo from './ProfileInfo/ProfileInfo'
 
 
-export class Profile extends Component {
-  render() {
-    return (
-      <div>
-        <ProfileInfo />
-        <MyPostsContainer/>
-      </div>
-    )
-  }
+const Profile = (props) => {
+  return (
+    <div>
+      <ProfileInfo profile={props.profile} />
+      <MyPostsContainer />
+    </div>
+  )
 }
 
 export default Profile
