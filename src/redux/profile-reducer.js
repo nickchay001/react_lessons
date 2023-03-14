@@ -13,7 +13,7 @@ let initialState = {
     profile: null,
    
 }
-debugger
+
 const profileReducer = (state = initialState, action) => {
     switch (action.type) {
         case UPDATE_NEW_POST_TEXT:

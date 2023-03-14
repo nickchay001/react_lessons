@@ -14,8 +14,8 @@ const ProfileInfo = (props) => {
                 <img alt='#' src='https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Image_created_with_a_mobile_phone.png/640px-Image_created_with_a_mobile_phone.png' />
             </div>
             <div className={Classes.descriptiomBlock}>
-                <img alt='#' src={props.profile.photos.small}/>
-                ava + description
+                <img alt='#' src={props.profile.photos.large}/>
+                <div>ava + description</div>
             </div>
         </div>
     )

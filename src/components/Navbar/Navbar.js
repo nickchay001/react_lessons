@@ -10,7 +10,7 @@ export class Navbar extends Component {
     return (
       <nav className={Classes.nav}>
         <div className={Classes.item}>
-          <NavLink to="/profile" className={(navData) => (navData.isActive ? `${Classes.activeLink}` : 'none')}>Profile</NavLink>
+          <NavLink to="/profile_content/*" className={(navData) => (navData.isActive ? `${Classes.activeLink}` : 'none')}>Profile</NavLink>
         </div>
         <div className={Classes.item}>
           <NavLink to="/dialogs" className={(navData) => (navData.isActive ? `${Classes.activeLink}` : 'none')}>Messages</NavLink>
