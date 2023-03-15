@@ -11,7 +11,7 @@ export class ProfileContainer extends Component {
   componentDidMount() {
     let userId = this.props.router.params.userId;
     if(!userId) {
-      userId = 10
+      userId = 28375
     }
     axios.get(`https://social-network.samuraijs.com/api/1.0/profile/` + userId)
       .then(response => {
