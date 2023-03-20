@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Navigate } from 'react-router-dom';
 import DialogItem from './DialogItem/DialogItem'
 import Classes from './Dialogs.module.css'
 import Message from './Message/Message'
@@ -10,7 +11,6 @@ import Message from './Message/Message'
 
 
 export class Dialogs extends Component {
-
   render() {
     let state = this.props.dialogsPage;
 
@@ -19,13 +19,17 @@ export class Dialogs extends Component {
     let newMessageBody = state.newMessageBody;
 
     let onSendMessageClick = () => {
-      this.props.sendMessage();  
+      this.props.sendMessage();
     }
     let onNewMessageChange = (e) => {
       let body = e.target.value;
       this.props.updateNewMessageBody(body);
     }
 
+
+    if (!this.props.isAuth) {
+      return <Navigate to={"/login"} />;
+    }
 
 
     return (

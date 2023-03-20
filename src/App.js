@@ -3,6 +3,7 @@ import './App.css';
 import DialogsContainer from './components/Dialogs/DialogsContainer';
 import Footer from './components/Footer/Footer';
 import HeaderContainer from './components/Header/HeaderContainer';
+import Login from './components/Header/Login/Login';
 import Music from './components/Music/Music';
 import Navbar from './components/Navbar/Navbar';
 import News from './components/News/News';
@@ -22,12 +23,13 @@ function App() {
       <Navbar />
       <div className='app-wrapper-content'>
         <Routes>
-          <Route path='/profile_content/:userId/*' element={<ProfileContainer />} />
+          <Route path='/profile/:userId?' element={<ProfileContainer />} />
           <Route path='/dialogs' element={<DialogsContainer />} />
           <Route path='/music' element={<Music />} />
           <Route path='/news' element={<News />} />
           <Route path='/setting' element={<Setting />} />
           <Route path='/users' element={<UsersContainer />} />
+          <Route path='/login' element={<Login />} />
         </Routes>
       </div>
       <Footer />
