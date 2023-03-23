@@ -4,7 +4,6 @@ import React, { Component } from 'react';
 import Users from './Users';
 import Preloader from "../common/Preloader/Preloader";
 import { compose } from "redux";
-import { withAuthNavigate } from "../../hoc/withAuthNavigate";
 
 
 
@@ -94,6 +93,5 @@ export default compose(
             unfollow,
         },
     ),
-    withAuthNavigate,
 )(UsersContainer)
 

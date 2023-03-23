@@ -10,10 +10,13 @@ let mapStateToPropsNavigate = (state) => ({
 export const withAuthNavigate = (Component) => {
 
     class NavigateComponent extends React.Component {
-        
+
         render() {
-            if (!this.props.isAuth) return <Navigate to={"/login"} />;
-            return <Component {...this.props} />;
+            if (!this.props.isAuth) {
+                return <Navigate to={"/login"} />;
+            }
+            else { return <Component {...this.props} />; }
+
         }
     }
 
