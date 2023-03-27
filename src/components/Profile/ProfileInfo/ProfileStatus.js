@@ -2,17 +2,25 @@ import React, { useState } from 'react'
 
 const ProfileStatus = (props) => {
     const [editMode, setEditMode] = useState(false);
-    debugger
+    const [status, setStatus] = useState(props.status);
+    const onStatusChange = (e) => {
+        setStatus(e.currentTarget.value);
+
+    }
+    const localStatusUpdated = () => {
+        props.updateStatus(status);
+    }
     return (
         <div>
             {!editMode &&
                 <div>
-                    <span onDoubleClick={() => setEditMode(true)}>{props.status}</span>
+                    <span onClick={() => setEditMode(true)}>{status || "This Profile hasn`t status"}</span>
                 </div>
             }
             {editMode &&
                 <div>
-                    <input autoFocus onBlur={() => setEditMode(false)} value={props.status} />
+                    <input onChange={onStatusChange} autoFocus onBlur={() => {setEditMode(false)
+                    localStatusUpdated() } } value={status} />
                 </div>
             }
         </div>

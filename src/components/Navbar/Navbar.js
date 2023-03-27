@@ -4,7 +4,6 @@ import Classes from './Navbar.module.css'
 
 
 
-
 export class Navbar extends Component {
   render(props) {
     return (
