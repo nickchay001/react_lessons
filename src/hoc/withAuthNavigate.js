@@ -13,7 +13,7 @@ export const withAuthNavigate = (Component) => {
 
         render() {
             if (!this.props.isAuth) {
-                return <Navigate to={"/login"} />;
+                return <Navigate replace to={"/login"} />;
             }
             else { return <Component {...this.props} />; }
 
