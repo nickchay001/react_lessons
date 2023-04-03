@@ -1,12 +1,17 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 
 
 const ProfileStatusWhithHookst = (props) => {
-
+    debugger
     let [editMode, setEditMode] = useState(false);
     let [status, setStatus] = useState(props.status);
 
+
+    useEffect(() => {
+        debugger
+        setStatus(props.status);
+    }, [props.status])
     const activateEditMode = () => {
         setEditMode(true)
     }
@@ -28,8 +33,8 @@ const ProfileStatusWhithHookst = (props) => {
             }
             {editMode &&
                 <div>
-                    <input onChange={onStatusChange} autoFocus onBlur={deactivateEditMode} 
-                    value={status}/>
+                    <input onChange={onStatusChange} autoFocus onBlur={deactivateEditMode}
+                        value={status} />
                 </div>
             }
         </div>
