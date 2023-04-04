@@ -9,26 +9,25 @@ import { Textarea } from '../../common/FormsControls/FormsControls';
 
 
 
-export const MyPosts = React.memo(
-  props => {
-    console.log("render")
-    let postsElements =
-      props.posts.map(p => <Post key={p.message + 1} message={p.message} likesCount={p.likesCount} />)
+export const MyPosts = props => {
+  console.log("render")
+  let postsElements =
+    props.posts.map(p => <Post key={p.message + 1} message={p.message} likesCount={p.likesCount} />)
 
-    let onAddPost = (values) => {
-      props.addPost(values.newPostText);
-    }
-    return (
-      <div className={Classes.postsBlock}>
-        <h3>My posts</h3>
-        <AddNewPostFormRedux onSubmit={onAddPost} />
-        <div className={Classes.posts}>
-          {postsElements}
-        </div>
-      </div>
-    )
+  let onAddPost = (values) => {
+    props.addPost(values.newPostText);
   }
-)
+  return (
+    <div className={Classes.postsBlock}>
+      <h3>My posts</h3>
+      <AddNewPostFormRedux onSubmit={onAddPost} />
+      <div className={Classes.posts}>
+        {postsElements}
+      </div>
+    </div>
+  )
+}
+
 
 const maxLength10 = maxLengthCreator(10);
 let AddNewPostForm = (props) => {
@@ -47,4 +46,4 @@ let AddNewPostForm = (props) => {
 
 const AddNewPostFormRedux = reduxForm({ form: "profileAddNewPostForm" })(AddNewPostForm)
 
-export default MyPosts
+export default React.memo(MyPosts)

@@ -24,9 +24,9 @@ export class App extends Component {
     this.props.initializeApp()
   }
   render() {
-    
+
     let test = this.props.app.state.initialized
-    if(!test) {
+    if (!test) {
       test = true
     }
     if (!test) {
