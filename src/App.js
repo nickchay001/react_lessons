@@ -1,6 +1,6 @@
 import React, { Component, Suspense } from 'react';
 import { connect, Provider } from 'react-redux';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { HashRouter, Route, Routes } from 'react-router-dom';
 import { compose } from 'redux';
 import './App.css';
 import Preloader from './components/common/Preloader/Preloader';
@@ -69,11 +69,11 @@ let AppContainer = compose(
 )(App)
 
 const SamuraiJSApp = (props) => {
-  return <BrowserRouter>
+  return <HashRouter>
     <Provider store={store}>
       <AppContainer />
     </Provider>
-  </BrowserRouter>
+  </HashRouter>
 }
 
 export default SamuraiJSApp;
