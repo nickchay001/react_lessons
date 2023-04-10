@@ -5,3 +5,8 @@
 .descriptiomBlock{
     padding: 10px;
 }
+.descriptiomBlock .userImage{
+   width: 300px;
+   height: 300px;
+   border: 2px solid purple;
+}
