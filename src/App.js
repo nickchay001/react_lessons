@@ -1,6 +1,6 @@
 import React, { Component, Suspense } from 'react';
 import { connect, Provider } from 'react-redux';
-import { HashRouter, Route, Routes } from 'react-router-dom';
+import { HashRouter, Navigate, Route, Routes } from 'react-router-dom';
 import { compose } from 'redux';
 import './App.css';
 import Preloader from './components/common/Preloader/Preloader';
@@ -21,9 +21,19 @@ const News = React.lazy(() => import('./components/News/News'));
 
 
 export class App extends Component {
-  componentDidMount() {
-    this.props.initializeApp()
+  catchAllUnhandledErrors= (promiseRejectionEvent) =>{
+    alert("some error occured");
+    //console.log(promiseRejectionEvent)
   }
+  componentDidMount() {
+    this.props.initializeApp();
+    window.addEventListener("unhandledrejection", this.catchAllUnhandledErrors);
+  }
+
+  componentWillUnmount(){
+    window.removeEventListener("unhandledrejection", this.catchAllUnhandledErrors);
+  }
+
   render() {
 
     let test = this.props.app.state.initialized
@@ -35,13 +45,13 @@ export class App extends Component {
     }
     return (
       <div className='app-wrapper' >
-        /learn react/i
         <HeaderContainer />
         <Navbar />
         <div className='app-wrapper-content'>
           <Suspense fallback={<Preloader />}>
             <Routes>
-              <Route path='/profile/:userId?' element={<ProfileContainer />} />
+              <Route path='/' element={<Navigate to={"/profile"} />} />
+              <Route path='/profile/:userId?' element={<ProfileContainer />} /> 
               <Route path='/dialogs' element={<DialogsContainer />} />
               <Route path='/music' element={<Music />} />
               <Route path='/news' element={<News />} />
@@ -67,7 +77,7 @@ let AppContainer = compose(
   withRouter,
   connect(mapStateToProps, { initializeApp })
 )(App)
-
+//BrowserRouter is better, but on the GitHub Page it isn`t work
 const SamuraiJSApp = (props) => {
   return <HashRouter>
     <Provider store={store}>

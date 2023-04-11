@@ -17,6 +17,7 @@ let initialState = {
 const authReducer = (state = initialState, action) => {
     switch (action.type) {
         case SET_USER_DATA:
+           
             return {
                 ...action.payload,
             };
@@ -36,6 +37,7 @@ const authReducer = (state = initialState, action) => {
 }
 
 export const setAuthUserData = (userId, email, login, isAuth) =>
+
     ({ type: SET_USER_DATA, payload: { userId, email, login, isAuth } })
 
 export const getCaptchaUrlSuccess = (captchaUrl) =>
@@ -58,12 +60,14 @@ export const login = (email, password, rememberMe, captcha) => async (dispatch) 
             dispatch(getCaptchaUrl());
         }
         let message = response.data.messages.length > 0 ? response.data.messages[0] : "Some error";
+        debugger
         dispatch(stopSubmit("login", { _error: message }));
     }
 }
 export const logout = () => async (dispatch) => {
     const response = await authAPI.logout();
     if (response.data.resultCode === 0) {
+         debugger
         dispatch(setAuthUserData(null, null, null, false));
     }
 }
