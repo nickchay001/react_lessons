@@ -15,9 +15,9 @@ const TOGGLE_IS_FOLLOWING_PROGRESS = 'my-network/usersPage/TOGGLE_IS_FOLLOWING_P
 
 let initialState = {
     users: [] as Array<UserType>,
-    pageSize: 10,
-    totalUsersCount: 0,
-    currentPage: 1,
+    pageSize: 5,
+    totalUsersCount: 10000,
+    currentPage: 5,
     isFetching: true,
     followingInProgress: [] as Array<number>, //array of users ids
 }

@@ -51,7 +51,7 @@ export class App extends Component {
               <Route path='/music' element={<Music />} />
               <Route path='/news' element={<News />} />
               <Route path='/setting' element={<Setting />} />
-              <Route path='/users' element={<UsersContainer />} />
+              <Route path='/users' element={<UsersContainer pageTitle={"Ass"}/>} />
               <Route path='/login' element={<Login />} />
             </Routes>
           </Suspense>
