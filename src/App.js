@@ -35,12 +35,7 @@ export class App extends Component {
   }
 
   render() {
-
-    let test = this.props.app.state.initialized
-    if (!test) {
-      test = true
-    }
-    if (!test) {
+    if (!this.props.initialized) {
       return <Preloader />
     }
     return (
@@ -67,7 +62,7 @@ export class App extends Component {
   }
 }
 let mapStateToProps = (state) => ({
-  app: state.app,
+  initialized: state.app.initialized,
 })
 
 
