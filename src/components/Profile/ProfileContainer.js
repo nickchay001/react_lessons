@@ -12,10 +12,9 @@ export class ProfileContainer extends Component {
   refreshProfile() {
     let userId = this.props.router.params.userId;
     if (!userId) {
-      debugger
       userId = this.props.authorizedUserId; //userId = this.props.authorizedUserId;
       if (!userId) {
-        userId = 28375
+       userId = 28375
         if (!userId) {
           this.props.router.navigate('/login')
         }
