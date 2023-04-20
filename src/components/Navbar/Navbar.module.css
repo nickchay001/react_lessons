@@ -1,0 +1,22 @@
+.nav {
+    grid-area: n;
+    background: #7e1a1a;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+}
+
+.nav .item a {
+    color: white;
+    text-decoration: none;
+}
+
+.nav .item a.activeLink {
+    color: gold;
+    text-decoration: underline;
+}
+
+.setting {
+    margin-top: 30px;
+}

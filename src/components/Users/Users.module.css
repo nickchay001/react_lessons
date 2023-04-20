@@ -1,0 +1,10 @@
+.userImage {
+    width: 100px;
+    height: 100px;
+    overflow: hidden;
+    border-radius: 50%;
+}
+.userImage img {
+    width: 100%;
+    height: 100%;
+}

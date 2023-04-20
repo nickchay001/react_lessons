@@ -1,0 +1,10 @@
+.selectedPage{
+    font-weight: bold;
+}
+.pageNumberContainer span{
+    cursor: pointer;
+    padding: 0px 2px;
+}
+.pageNumber{
+    color: aquamarine;
+}
