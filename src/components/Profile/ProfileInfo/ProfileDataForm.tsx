@@ -1,12 +1,17 @@
 import React from "react"
-import { Textarea, createField } from "../../common/FormsControls/FormsControls"
+import { GetStringKeys, Textarea, createField } from "../../common/FormsControls/FormsControls"
 import { Input } from "../../common/FormsControls/FormsControls"
-import { reduxForm } from "redux-form"
+import { InjectedFormProps, reduxForm } from "redux-form"
 import Classes from './ProfileInfo.module.css'
+import { ProfileType } from "../../../types/types"
 
 
+type PropsType ={ 
+    profile: ProfileType
+}
+type ProfileTypeKeys = GetStringKeys<PropsType>
 
-const ProfileDataForm = ({ profile, handleSubmit, error }) => {
+const ProfileDataForm:React.FC<InjectedFormProps<ProfileType, PropsType> & PropsType> = ({ profile, handleSubmit, error }) => {
     return (
 
         <form onSubmit={handleSubmit}>
@@ -42,7 +47,7 @@ const ProfileDataForm = ({ profile, handleSubmit, error }) => {
     )
 }
 
-const ProfileDataFormReduxForm = reduxForm({ form: 'edit-profile' })(ProfileDataForm)
+const ProfileDataFormReduxForm = reduxForm<ProfileType, PropsType>({ form: 'edit-profile' })(ProfileDataForm)
 
 
 export default ProfileDataFormReduxForm

@@ -2,10 +2,12 @@ import React, { Component } from 'react'
 import { NavLink } from 'react-router-dom'
 import Classes from './Navbar.module.css'
 
+type PropsType = {
+
+}
 
 
-export class Navbar extends Component {
-  render(props) {
+export const Navbar: React.FC<PropsType> = (props) => {
     return (
       <nav className={Classes.nav}>
         <div className={Classes.item}>
@@ -28,7 +30,6 @@ export class Navbar extends Component {
         </div>
       </nav>
     )
-  }
 }
 
 export default Navbar

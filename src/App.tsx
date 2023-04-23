@@ -10,7 +10,7 @@ import Login from './components/Header/Login/Login';
 import Navbar from './components/Navbar/Navbar';
 import { withRouter } from './hoc/withRouter';
 import { initializeApp } from './redux/app-reducer';
-import store from './redux/redux-store';
+import store, { AppStateType } from './redux/redux-store';
 
 const DialogsContainer = React.lazy(() => import('./components/Dialogs/DialogsContainer'));
 const ProfileContainer = React.lazy(() => import('./components/Profile/ProfileContainer'));
@@ -19,9 +19,13 @@ const Setting = React.lazy(() => import('./components/Setting/Setting'));
 const UsersContainer = React.lazy(() => import('./components/Users/UsersContainer'));
 const News = React.lazy(() => import('./components/News/News'));
 
+type MapPropsType = ReturnType<typeof mapStateToProps>
+type DispatchPropsType = {
+  initializeApp: () => void
+}
 
-export class App extends Component {
-  catchAllUnhandledErrors= (promiseRejectionEvent) =>{
+export class App extends Component<MapPropsType & DispatchPropsType> {
+  catchAllUnhandledErrors = (e: PromiseRejectionEvent) => {
     alert("some error occured");
     //console.log(promiseRejectionEvent)
   }
@@ -30,7 +34,7 @@ export class App extends Component {
     window.addEventListener("unhandledrejection", this.catchAllUnhandledErrors);
   }
 
-  componentWillUnmount(){
+  componentWillUnmount() {
     window.removeEventListener("unhandledrejection", this.catchAllUnhandledErrors);
   }
 
@@ -46,12 +50,12 @@ export class App extends Component {
           <Suspense fallback={<Preloader />}>
             <Routes>
               <Route path='/' element={<Navigate to={"/profile"} />} />
-              <Route path='/profile/:userId?' element={<ProfileContainer />} /> 
+              <Route path='/profile/:userId?' element={<ProfileContainer />} />
               <Route path='/dialogs' element={<DialogsContainer />} />
               <Route path='/music' element={<Music />} />
               <Route path='/news' element={<News />} />
               <Route path='/setting' element={<Setting />} />
-              <Route path='/users' element={<UsersContainer pageTitle={"Ass"}/>} />
+              <Route path='/users' element={<UsersContainer pageTitle={"Ass"} />} />
               <Route path='/login' element={<Login />} />
             </Routes>
           </Suspense>
@@ -61,19 +65,19 @@ export class App extends Component {
     )
   }
 }
-let mapStateToProps = (state) => ({
+let mapStateToProps = (state: AppStateType) => ({
   initialized: state.app.initialized,
 })
 
 
 
 
-let AppContainer = compose(
+let AppContainer = compose<React.ComponentType>(
   withRouter,
   connect(mapStateToProps, { initializeApp })
 )(App)
 //BrowserRouter is better, but on the GitHub Page it isn`t work
-const SamuraiJSApp = (props) => {
+const SamuraiJSApp: React.FC = () => {
   return <HashRouter>
     <Provider store={store}>
       <AppContainer />

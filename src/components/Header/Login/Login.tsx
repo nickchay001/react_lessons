@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { Navigate } from 'react-router-dom'
 import { InjectedFormProps, reduxForm } from 'redux-form'
 import { maxLengthCreator, required } from '../../../utils/validators/validators'
-import { createField, Input } from '../../common/FormsControls/FormsControls'
+import { createField, GetStringKeys, Input } from '../../common/FormsControls/FormsControls'
 import { login } from '../../../redux/auth-reducer'
 import Classes from './../../common/FormsControls/FormsControls.module.css'
 import { AppStateType } from '../../../redux/redux-store'
@@ -56,7 +56,7 @@ export type LoginFormValuesType = {
     captcha:string
 }
 
-type LoginFormValuesTypeKeys = Extract <keyof LoginFormValuesType, string>
+export type LoginFormValuesTypeKeys = GetStringKeys<keyof LoginFormValuesType>
 
 
 const Login: FC<MapStatePropsType & MapDispatchPropsType> = (props) => {

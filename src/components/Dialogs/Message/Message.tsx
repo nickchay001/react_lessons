@@ -1,7 +1,11 @@
 import React from 'react'
 import Classes from './../Dialogs.module.css'
 
-const Message = (props) => {
+type PropsType = {
+  message: string
+}
+
+const Message: React.FC<PropsType> = (props) => {
     return (
       <div className={Classes.message}>{props.message}</div>
     )
