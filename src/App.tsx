@@ -6,17 +6,18 @@ import './App.css';
 import Preloader from './components/common/Preloader/Preloader';
 import Footer from './components/Footer/Footer';
 import HeaderContainer from './components/Header/HeaderContainer';
-import Login from './components/Header/Login/Login';
+import {LoginPage} from './components/Header/Login/Login';
 import Navbar from './components/Navbar/Navbar';
 import { withRouter } from './hoc/withRouter';
 import { initializeApp } from './redux/app-reducer';
 import store, { AppStateType } from './redux/redux-store';
+import { UsersPage } from './components/Users/UsersContainer';
 
 const DialogsContainer = React.lazy(() => import('./components/Dialogs/DialogsContainer'));
 const ProfileContainer = React.lazy(() => import('./components/Profile/ProfileContainer'));
 const Music = React.lazy(() => import('./components/Music/Music'));
 const Setting = React.lazy(() => import('./components/Setting/Setting'));
-const UsersContainer = React.lazy(() => import('./components/Users/UsersContainer'));
+
 const News = React.lazy(() => import('./components/News/News'));
 
 type MapPropsType = ReturnType<typeof mapStateToProps>
@@ -55,8 +56,8 @@ export class App extends Component<MapPropsType & DispatchPropsType> {
               <Route path='/music' element={<Music />} />
               <Route path='/news' element={<News />} />
               <Route path='/setting' element={<Setting />} />
-              <Route path='/users' element={<UsersContainer pageTitle={"Ass"} />} />
-              <Route path='/login' element={<Login />} />
+              <Route path='/users' element={<UsersPage pageTitle={"Ass"} />} />
+              <Route path='/login' element={<LoginPage />} />
             </Routes>
           </Suspense>
         </div>

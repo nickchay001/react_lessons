@@ -2,7 +2,7 @@ import { FormAction, stopSubmit } from "redux-form";
 import { ResultCodeEnum, ResultCodeForCaptchaEnum } from "../api/api";
 import { authAPI } from "../api/auth-api";
 import { securityAPI } from "../api/security-api";
-import { BaseThunkType, InferActionsTypes } from "./redux-store";
+import store, { BaseThunkType, InferActionsTypes } from "./redux-store";
 
 
 let initialState = {
@@ -75,3 +75,4 @@ export default authReducer;
 export type InitialStateType = typeof initialState;
 type ActionType = InferActionsTypes<typeof actions>
 type ThunkType = BaseThunkType<ActionType | FormAction>
+export type DispatchTypes = typeof store.dispatch;

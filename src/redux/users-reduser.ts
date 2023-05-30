@@ -1,7 +1,7 @@
 import { Dispatch } from "react";
 import { UserType } from "../types/types";
 import { updateObjectInArray } from "../utils/object-helpers";
-import { BaseThunkType, InferActionsTypes } from "./redux-store";
+import store, { BaseThunkType, InferActionsTypes } from "./redux-store";
 import { usersAPI } from "../api/user-api";
 import { ResponseType } from "../api/api";
 
@@ -121,4 +121,5 @@ export default usersReducer;
 export type ThunkType = BaseThunkType<ActionsTypes>
 export type InitialStateType = typeof initialState
 export type FilterType = typeof initialState.filter
-type ActionsTypes = InferActionsTypes<typeof actions>
+export type ActionsTypes = InferActionsTypes<typeof actions>
+export type DispatchTypes = typeof store.dispatch;
