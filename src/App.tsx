@@ -21,6 +21,7 @@ import {AppHeader} from './components/Header/Header';
 const {  Content, Footer, Sider } = Layout;
 
 const DialogsContainer = React.lazy(() => import('./components/Dialogs/DialogsContainer'));
+const ChatPage = React.lazy(() => import('./pages/Chat/ChatPage'));
 const ProfileContainer = React.lazy(() => import('./components/Profile/ProfileContainer'));
 const Music = React.lazy(() => import('./components/Music/Music'));
 const Setting = React.lazy(() => import('./components/Setting/Setting'));
@@ -71,6 +72,7 @@ export const App: React.FC<MapPropsType & DispatchPropsType> = (props) => {
               </SubMenu>
               <SubMenu icon={<TeamOutlined />} key='sub2' title="Developers">
                 <Menu.Item key='3'><Link to="/users">Users</Link></Menu.Item>
+                <Menu.Item key='4'><Link to="/chat">Chat</Link></Menu.Item>
               </SubMenu>
             </Menu>
           </Sider>
@@ -80,6 +82,7 @@ export const App: React.FC<MapPropsType & DispatchPropsType> = (props) => {
                 <Route path='/' element={<Navigate to={"/profile"} />} />
                 <Route path='/profile/:userId?' element={<ProfileContainer />} />
                 <Route path='/dialogs' element={<DialogsContainer />} />
+                <Route path='/chat' element={<ChatPage />} />
                 <Route path='/music' element={<Music />} />
                 <Route path='/news' element={<News />} />
                 <Route path='/setting' element={<Setting />} />
